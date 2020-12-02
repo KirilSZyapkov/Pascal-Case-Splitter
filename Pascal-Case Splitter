@@ -1,0 +1,21 @@
+function pascalCaseSplitter(input) {
+    let text = input.split(``);
+    input = input.split(``);
+    let newInput = [];
+    let indexes = [];
+    for (let a = 0; a < text.length; a++) {
+        let chr = text[a].charCodeAt();
+        if (chr >= 65 && chr <= 90) {
+            indexes.push(text.indexOf(text[a]));
+            text[a] = input[a].toLowerCase();
+        }
+    }
+    for (let b = 0; b < indexes.length; b++) {
+        let start = indexes[b];
+        let end = indexes[b + 1];
+        let word = input.slice(start, end).join(``);
+        newInput.push(word);
+
+    }
+    console.log(newInput.join(`, `));
+}
